@@ -22,16 +22,10 @@ getData("https://pokeapi.co/api/v2/pokemon");
                     class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="row">
-            <div class="col-md-2 mb-4" v-for="(pokemon, index) in data.results" :key="index">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ pokemon.name }}</h5>
-                        <router-link class="btn btn-success text-center"
-                            :to="`/pokemons/${pokemon.name}`">Detalles</router-link>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="(pokemon, index) in data.results" :key="index">
+                <router-link :to="`/pokemons/${pokemon.name}`">{{ pokemon.name }}</router-link>
+            </li>
+        </ul>
     </template>
 </template>
